@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+    <div class="container">
+
+    <div class="question-number" id="count">0</div>
+    <div id="js-question" class="mt-3 alert alert-primary" role="alert">
+    　問題
+    </div>
+
+    <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-primary">1</button>
+    <button type="button" class="ml-1 btn btn-primary">2</button>
+    <button type="button" class="ml-1 btn btn-primary">3</button>
+    <button type="button" class="ml-1 btn btn-primary">4</button>
+    </div>
+</div>
+
+<!-- 正誤モーダル -->
+<div class="answerBox" id="js-popup">
+    <div class="answerBox__inner">
+        <p class="answerBo__inner__CW" id="js-answer">answer</p>
+        <div class="answerBox__inner__description" id="js-description">
+            description
+        </div>
+        <div class="answerBox__close-btn" id="js-close-btn">次へ</div>
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+</div>
+<!--  -->
+
+<!-- 結果モーダル -->
+<div class="resultBox" id="js-popup-result">
+    <div class="resultBox__inner">
+        <p>終了！お疲れ様でした</p>
+        <p class="resultBox__inner__CW" id="js-result">result</p>
+
+        <div class="resultBox__inner__buttons">
+            <div class="resultBox__inner__buttons__close-btn" id="js-close-btn2">もう一度</div>
+            <a href="../../top.html" class="buttons__inner__buttons__returnTop">トップページへ</a>
+        </div>
+        <div class="resultBox__inner__twitter">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+    
+    <div class="black-background" ></div>
+</div>
+<!--  -->
+
+<div class="buttons">
+    <div class="buttons__reloadBtn" id="js-reload">やり直す</div>
+    <a href="../../top.html" class="buttons__returnTop">トップへ</a>
+</div>
+
+<script src="../js/script.js"></script>
+<!-- <script src="test.js"></script> -->
+<!-- <script src="../js/difficult.js"></script> -->
+</body>
+
+</html>​
