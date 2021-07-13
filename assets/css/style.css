@@ -22,9 +22,38 @@
     transform: translate(-50%,-50%);
     width: 80%;
     max-width: 600px;
+    height: 500px;
     padding: 50px;
     background-color: #fff;
     z-index: 2;
+}
+
+.answerBox__inner__answers__answer1{
+    display: flex;
+}
+
+.answerBox__inner__answers__answer2{
+    display: flex;
+}
+
+.answerBox__inner__answers__answer3{
+    display: flex;
+}
+
+.answerBox__inner__answers__answer4{
+    display: flex;
+}
+
+.answerBox__inner__answers__answer5{
+    display: flex;
+}
+
+
+.answerBox__inner__description{
+    width: 100%;
+    height: 300px;
+    word-break: break-all;
+    overflow: scroll;
 }
 
 .black-background{
@@ -129,7 +158,7 @@
     margin: 0 auto;
     margin-top: 50px;
     display: flex;
-    width: 200px;
+    width: 300px;
 }
 
 
@@ -163,6 +192,25 @@
     border-radius: 5px;
     margin-left: 10px;
     text-decoration: none;
+}
+
+.buttons__confirm{
+    height: 30px;
+    width: 100px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 10px;
+    /* margin-left: 20%; */
+}
+
+.buttons__confirm:hover{
+    color: #fff;
+    opacity: .6;
+    transition: .2s;
 }
 
 a:hover{
@@ -221,3 +269,59 @@ h1{
     transition: .2s;
 }
 
+.non-cursor{
+    cursor: default;
+}
+
+input{
+    /* display: none; */
+    margin-left: 5px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .d-flex{
+        display: block!important;
+    }
+
+    button{
+        width: 100%;
+    }
+
+    .ml-1{
+        margin-left: 0!important;
+        margin-top: 10px;
+    }
+
+    .answerBox__inner{
+        height: 400px;
+    }
+
+    .answerBox__inner__description{
+        height: 200px;
+    }
+
+    .answerBox__close-btn {
+        width: calc(100% - 60px);
+    }
+
+    .resultBox__inner{
+        height: 400px;
+    }
+
+    .resultBox__inner__buttons{
+        display: block;
+        width: 100%;
+        height: 120px;
+    }
+
+    .resultBox__inner__buttons__close-btn{
+        width: 100%;
+    }
+
+    .buttons__inner__buttons__returnTop{
+        display: block;
+        width: 100%;
+        margin: 20px 0 0 0;
+    }
+}

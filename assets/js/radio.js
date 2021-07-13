@@ -143,24 +143,21 @@ function shuffle(quiz) {
 return quiz;
 };
 arr = shuffle(quiz);
-// console.log(quiz);
-// ここまでシャッフル
+
+// console.log(document.getElementsByClassName('sasasa')[0].value);
 
 
-
-// 答えのシャッフル
-// const ansShuff = () => {
-//     for (let i = quiz[1].answers.length - 1; i >= 0; i--) {
-//         let rand = Math.floor(Math.random() * (i + 1));
-//       // 配列の数値を入れ替える
-//         [quiz[i], quiz[rand]] = [quiz[rand], quiz[i]]
-//     }
-// };
-// ansShuff();
-// 答えのシャッフルここまで
-
-
-
+// inputのvalueのセット
+const valueSet = () => {
+    for(let i = 0; i < 4; i++){
+        document.getElementsByClassName('btn1')[i].value = quiz[0].answers[i];
+        document.getElementsByClassName('btn2')[i].value = quiz[1].answers[i];
+        document.getElementsByClassName('btn3')[i].value = quiz[2].answers[i];
+        document.getElementsByClassName('btn4')[i].value = quiz[3].answers[i];
+        document.getElementsByClassName('btn5')[i].value = quiz[4].answers[i];
+    }
+};
+valueSet();
 
    //クイズの問題、選択肢を定義
     const setupQuiz = () => {
@@ -177,95 +174,95 @@ arr = shuffle(quiz);
         $button3[buttonIndex].textContent = quiz[2].answers[buttonIndex];
         $button4[buttonIndex].textContent = quiz[3].answers[buttonIndex];
         $button5[buttonIndex].textContent = quiz[4].answers[buttonIndex];
-        console.log($button2[buttonIndex].textContent);
         buttonIndex++;
     }
 }
 setupQuiz();
 
 
-// 問題のカウント
-// const count = () =>{
-// document.getElementById('count').textContent = '第' + countNumber + '問';
-// };
-// count();
-
-
-//ボタンをクリックしたら正誤判定
-    let handlerIndex = 0;
-    while (handlerIndex < buttonLength) {
-        $button[handlerIndex].addEventListener('click', (e) => {
-            clickHandler(e);
-        });
-        handlerIndex++;
-    };
-
-// 判定
-const clickHandler = (e) => {
-        // 正誤判定
-        if(quiz[quizIndex].correct === e.target.textContent){
-            document.getElementById('js-answer').textContent = '正解！';
-            setPopup();
-            score++;
-        } else {
-            document.getElementById('js-answer').textContent = '残念！正解は' + quiz[quizIndex].correct;
-            setPopup();
-        };
-    quizIndex++;
-    countNumber++;
-};
-
-// ポップアップの表示
+// 確認画面の確認
 const setPopup = () => {
     let popup = document.getElementById('js-popup');
     if(!popup) return;
-    popup.classList.add('is-show');
+    let confirmBtn = document.getElementById('js-confirm');
+
+    confirmBtn.addEventListener('click', () => {
+        let elements = document.getElementsByName('a');
+        let elements2 = document.getElementsByName('b');
+        let elements3 = document.getElementsByName('c');
+        let elements4 = document.getElementsByName('d');
+        let elements5 = document.getElementsByName('e');
+        let len = elements.length;
+        let checkValue = [];
+        // チェックの値を判定しcheckValueに投下
+        for (let i = 0; i < len; i++){
+            if (elements.item(i).checked){
+                checkValue[0] = elements.item(i).value;
+            }
+        }
+    
+        // チェックの値を判定しcheckValueに投下2
+        for (let i = 0; i < len; i++){
+            if (elements2.item(i).checked){
+                checkValue[1] = elements2.item(i).value;
+            }
+        }
+
+       // チェックの値を判定しcheckValueに投下3
+        for (let i = 0; i < len; i++){
+            if (elements3.item(i).checked){
+                checkValue[2] = elements3.item(i).value;
+            }
+        }
+
+        // チェックの値を判定しcheckValueに投下4
+        for (let i = 0; i < len; i++){
+            if (elements4.item(i).checked){
+                checkValue[3] = elements4.item(i).value;
+            }
+        }
+
+         // チェックの値を判定しcheckValueに投下5
+        for (let i = 0; i < len; i++){
+            if (elements5.item(i).checked){
+                checkValue[4] = elements5.item(i).value;
+            }
+        }
+
+        // 問題文の書き換え
+        const setQ = () => {
+            document.getElementById('q1').textContent = quiz[0].question;
+            document.getElementById('q2').textContent = quiz[1].question;
+            document.getElementById('q3').textContent = quiz[2].question;
+            document.getElementById('q4').textContent = quiz[3].question;
+            document.getElementById('q5').textContent = quiz[4].question;
+        }
+        setQ();
+
+        // 答えの書き換え
+        const setA = () => {
+            document.getElementById('a1').textContent = checkValue[0];
+            document.getElementById('a2').textContent = checkValue[1];
+            document.getElementById('a3').textContent = checkValue[2];
+            document.getElementById('a4').textContent = checkValue[3];
+            document.getElementById('a5').textContent = checkValue[4];
+        }
+        setA();
+
+        console.log(checkValue);
+        popup.classList.add('is-show');
+    })
+    
+    // 確認画面閉じたときの処理
     let blackBg = document.getElementById('js-black-bg');
     let closeBtn = document.getElementById('js-close-btn');
     closePopUp(blackBg);
     closePopUp(closeBtn);
-    document.getElementById('js-description').textContent = quiz[quizIndex].description;
     function closePopUp(elem) {
     if(!elem) return;
     elem.addEventListener('click', function() {
         popup.classList.remove('is-show');
-        if(quizIndex < 5){
-            setupQuiz();
-            count();
-        } else {
-            // 結果ポップアップ
-            let result = document.getElementById('js-popup-result');
-            result.classList.add('is-show-result');
-            let blackBg2 = document.getElementById('js-black-bg2');
-            let closeBtn2 = document.getElementById('js-close-btn2');
-            
-
-            // ランク判定
-            if(score === 0){
-                document.getElementById('js-result').textContent = score + '/5 がんがれ！';
-            }else if(score < 5){
-                document.getElementById('js-result').textContent = score + '/5 秀才！！';
-            }else{
-                document.getElementById('js-result').textContent = score + '/5 天才！！！';
-            };
-
-
-            closeResult(blackBg2);
-            closeResult(closeBtn2);
-            function closeResult(elem) {
-            if(!elem) return;
-                elem.addEventListener('click', function() {
-                    result.classList.remove('is-show-result');
-                    location.reload();
-                })
-            }
-        }
     })
-    }
-};
-
-// リロードボタン（やり直しボタン）
-const reloadBtn = document.getElementById('js-reload');
-reloadBtn.addEventListener('click', () => {
-    location.reload();
-});
+}
+}
+setPopup();

@@ -23,26 +23,98 @@
 
 <body>
     <div class="container">
-
-    <div class="question-number" id="count">0</div>
-    <div id="js-question" class="mt-3 alert alert-primary" role="alert">
-    　問題
+        <div class="question-number" id="count">Q1</div>
+        <div id="js-question" class="mt-3 alert alert-primary" role="alert">
+        　問題
+        </div>
+        <div class="d-flex justify-content-center">
+            <label><input type="radio" name="a" value="uy" class="btn1"><div class="button">1</div></label>
+            <label><input type="radio" name="a" value="fr" class="btn1"><div class="button">1</div></label>
+            <label><input type="radio" name="a" value="hy" class="btn1"><div class="button">1</div></label>
+            <label><input type="radio" name="a" value="qw" class="btn1"><div class="button">1</div></label>
+        </div>
     </div>
 
-    <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-primary">1</button>
-    <button type="button" class="ml-1 btn btn-primary">2</button>
-    <button type="button" class="ml-1 btn btn-primary">3</button>
-    <button type="button" class="ml-1 btn btn-primary">4</button>
+    <div class="container">
+        <div class="question-number" id="count">Q2</div>
+        <div id="js-question2" class="mt-3 alert alert-primary" role="alert">
+        　問題
+        </div>
+        <div class="d-flex justify-content-center">
+            <label><input type="radio" name="b" value="twitter" class="btn2"><div class="button2">1</div></label>
+            <label><input type="radio" name="b" value="twitter" class="btn2"><div class="button2">1</div></label>
+            <label><input type="radio" name="b" value="twitter" class="btn2"><div class="button2">1</div></label>
+            <label><input type="radio" name="b" value="twitter" class="btn2"><div class="button2">1</div></label>
+        </div>
     </div>
-</div>
-
-<!-- 正誤モーダル -->
+    
+    <div class="container">
+        <div class="question-number" id="count">Q3</div>
+        <div id="js-question3" class="mt-3 alert alert-primary" role="alert">
+        　問題
+        </div>
+        <div class="d-flex justify-content-center">
+            <label><input type="radio" name="c" value="facebook" class="btn3"><div class="button3">1</div></label>
+            <label><input type="radio" name="c" value="facebook" class="btn3"><div class="button3">1</div></label>
+            <label><input type="radio" name="c" value="facebook" class="btn3"><div class="button3">1</div></label>
+            <label><input type="radio" name="c" value="facebook" class="btn3"><div class="button3">1</div></label>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="question-number" id="count">Q4</div>
+        <div id="js-question4" class="mt-3 alert alert-primary" role="alert">
+        　問題
+        </div>
+        <div class="d-flex justify-content-center">
+            <label><input type="radio" name="d" value="facebook" class="btn4"><div class="button4">1</div></label>
+            <label><input type="radio" name="d" value="facebook" class="btn4"><div class="button4">1</div></label>
+            <label><input type="radio" name="d" value="facebook" class="btn4"><div class="button4">1</div></label>
+            <label><input type="radio" name="d" value="facebook" class="btn4"><div class="button4">1</div></label>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="question-number" id="count">Q5</div>
+        <div id="js-question5" class="mt-3 alert alert-primary" role="alert">
+        　問題
+        </div>
+        <div class="d-flex justify-content-center">
+            <label><input type="radio" name="e" value="facebook" class="btn5"><div class="button5">1</div></label>
+            <label><input type="radio" name="e" value="facebook" class="btn5"><div class="button5">1</div></label>
+            <label><input type="radio" name="e" value="facebook" class="btn5"><div class="button5">1</div></label>
+            <label><input type="radio" name="e" value="facebook" class="btn5"><div class="button5">1</div></label>
+        </div>
+    </div>
+<!-- 確認モーダル -->
 <div class="answerBox" id="js-popup">
     <div class="answerBox__inner">
-        <p class="answerBo__inner__CW" id="js-answer">answer</p>
-        <div class="answerBox__inner__description" id="js-description">
-            description
+        <div class="answerBox__inner__answers">
+            <div class="answerBox__inner__answers__answer1">
+                <p>Q1</p>
+                <div class="answerBox__inner__answers__answer1__q" id="q1">q</div>
+                <div class="answerBox__inner__answers__answer1__a" id="a1">a</div>
+            </div>
+            <div class="answerBox__inner__answers__answer2">
+                <p>Q2</p>
+                <div class="answerBox__inner__answers__answer2__q" id="q2">q</div>
+                <div class="answerBox__inner__answers__answer2__a" id="a2">a</div>
+            </div>
+            <div class="answerBox__inner__answers__answer3">
+                <p>Q3</p>
+                <div class="answerBox__inner__answers__answer3__q" id="q3">q</div>
+                <div class="answerBox__inner__answers__answer3__a" id="a3">a</div>
+            </div>
+            <div class="answerBox__inner__answers__answer4">
+                <p>Q4</p>
+                <div class="answerBox__inner__answers__answer4__q" id="q4">q</div>
+                <div class="answerBox__inner__answers__answer4__a" id="a4">a</div>
+            </div>
+            <div class="answerBox__inner__answers__answer5">
+                <p>Q5</p>
+                <div class="answerBox__inner__answers__answer5__q" id="q5">q</div>
+                <div class="answerBox__inner__answers__answer5__a" id="a5">a</div>
+            </div>
         </div>
         <div class="answerBox__close-btn" id="js-close-btn">次へ</div>
     </div>
@@ -59,23 +131,28 @@
         <div class="resultBox__inner__buttons">
             <div class="resultBox__inner__buttons__close-btn" id="js-close-btn2">もう一度</div>
             <a href="../../top.html" class="buttons__inner__buttons__returnTop">トップページへ</a>
+            
         </div>
         <div class="resultBox__inner__twitter">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="検定しよう"　data-size="large">Tweet</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <!-- <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="https://social-plugins.line.me/ja/how_to_install#lineitbutton" data-color="default" data-size="small" data-count="false" style="display: none;"></div>            <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script> -->
         </div>
     </div>
     
-    <div class="black-background" ></div>
+    <div class="black-background non-cursor"></div>
 </div>
 <!--  -->
 
 <div class="buttons">
     <div class="buttons__reloadBtn" id="js-reload">やり直す</div>
     <a href="../../top.html" class="buttons__returnTop">トップへ</a>
+    <div class="buttons__confirm" id="js-confirm">確認画面へ</div>
 </div>
 
-<script src="../js/script.js"></script>
+<script src="../js/radio.js"></script>
+
+<!-- <script src="../js/script.js"></script> -->
 <!-- <script src="test.js"></script> -->
 <!-- <script src="../js/difficult.js"></script> -->
 </body>
