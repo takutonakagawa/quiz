@@ -180,11 +180,14 @@ valueSet();
 setupQuiz();
 
 
+
+
 // 確認画面の確認
 const setPopup = () => {
     let popup = document.getElementById('js-popup');
     if(!popup) return;
     let confirmBtn = document.getElementById('js-confirm');
+
 
     confirmBtn.addEventListener('click', () => {
         let elements = document.getElementsByName('a');
@@ -200,35 +203,30 @@ const setPopup = () => {
                 checkValue[0] = elements.item(i).value;
             }
         }
-    
         // チェックの値を判定しcheckValueに投下2
         for (let i = 0; i < len; i++){
             if (elements2.item(i).checked){
                 checkValue[1] = elements2.item(i).value;
             }
         }
-
        // チェックの値を判定しcheckValueに投下3
         for (let i = 0; i < len; i++){
             if (elements3.item(i).checked){
                 checkValue[2] = elements3.item(i).value;
             }
         }
-
         // チェックの値を判定しcheckValueに投下4
         for (let i = 0; i < len; i++){
             if (elements4.item(i).checked){
                 checkValue[3] = elements4.item(i).value;
             }
         }
-
          // チェックの値を判定しcheckValueに投下5
         for (let i = 0; i < len; i++){
             if (elements5.item(i).checked){
                 checkValue[4] = elements5.item(i).value;
             }
         }
-
         // 問題文の書き換え
         const setQ = () => {
             document.getElementById('q1').textContent = quiz[0].question;
@@ -238,7 +236,6 @@ const setPopup = () => {
             document.getElementById('q5').textContent = quiz[4].question;
         }
         setQ();
-
         // 答えの書き換え
         const setA = () => {
             document.getElementById('a1').textContent = checkValue[0];
@@ -248,21 +245,93 @@ const setPopup = () => {
             document.getElementById('a5').textContent = checkValue[4];
         }
         setA();
-
+        
         console.log(checkValue);
         popup.classList.add('is-show');
     })
     
     // 確認画面閉じたときの処理
     let blackBg = document.getElementById('js-black-bg');
-    let closeBtn = document.getElementById('js-close-btn');
+    // let closeBtn = document.getElementById('js-close-btn');
+    let reBtn = document.getElementById('js-re-btn');
     closePopUp(blackBg);
-    closePopUp(closeBtn);
+    // closePopUp(closeBtn);
+    closePopUp(reBtn);
     function closePopUp(elem) {
     if(!elem) return;
     elem.addEventListener('click', function() {
         popup.classList.remove('is-show');
+        document.getElementById('js-alt').classList.add('alt-hidden');
     })
 }
 }
 setPopup();
+
+
+  // 採点からの結果画面に行く 
+    let resultBtn = document.getElementById('js-rlt-btn');
+        const resultAnnouncement = () => {
+        resultBtn.addEventListener('click', () => {
+        // 未回答チェック
+        let y = 0;
+        for(let i = 0; i < 5; i++){
+            if(document.getElementsByClassName('judgment')[i].textContent === ''){
+                document.getElementById('js-alt').classList.remove('alt-hidden');
+                // window.alert('未回答があります');
+                y = 0;
+                break;
+            }else{
+                y++;
+                    if(y === 5){
+                // 確認モーダルを閉じる
+                let popup = document.getElementById('js-popup');
+                closePopUp(resultBtn)
+                function closePopUp(elem) {
+                    if(!elem) return;
+                        popup.classList.remove('is-show');
+                }
+                // ここまで確認モーダルを閉じる
+                // 正誤チェック
+                    let score = 0;
+                    // console.log(document.getElementsByClassName('judgment'));
+                    let quizIndex = 0;
+                    for(let i = 0; i < 5; i++){
+                        if(document.getElementsByClassName('judgment')[i].textContent === quiz[quizIndex].correct){
+                            score++;
+                            quizIndex++;
+                        }else{
+                            quizIndex++;
+                        }
+                    }
+                // scoreの書き換え
+                document.getElementById('js-result').textContent = score + '/5 ';
+                // ランクの書き換え
+                // let rank = document.getElementById('js-rank').textContent;
+                if(score === 0){
+                    document.getElementById('js-rank').textContent = 'がんばれ';
+                    document.getElementById('js-img4').classList.remove('noimg');
+                }else if(score < 3){
+                    document.getElementById('js-rank').textContent = 'そこそこ！！';
+                    document.getElementById('js-img3').classList.remove('noimg');
+                }else if(score < 5){
+                        document.getElementById('js-rank').textContent = '秀才！！';
+                        document.getElementById('js-img2').classList.remove('noimg');
+                }else{
+                    document.getElementById('js-rank').textContent = '天才';
+                    document.getElementById('js-img1').classList.remove('noimg');
+                    document.getElementById('balloon').classList.remove('balloons-hidden');
+                };
+                // 結果モーダルの表示
+                let result = document.getElementById('js-popup-result');
+                result.classList.add('is-show-result');
+                    }
+                }
+            }
+        })
+    }
+    resultAnnouncement();
+
+
+    document.getElementById('js-close-btn2').addEventListener('click', () => {
+        location.reload();
+    })

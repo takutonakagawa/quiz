@@ -146,7 +146,7 @@ arr = shuffle(quiz);
 // console.log(quiz);
 // ここまでシャッフル
 
-
+console.log(document.getElementsByClassName('text1').textContent)
 
 // 答えのシャッフル
 // const ansShuff = () => {
