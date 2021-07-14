@@ -59,6 +59,11 @@ input{
     z-index: 2;
 }
 
+.answerBox__inner__answers{
+    height: 70%;
+    overflow: scroll;
+}
+
 .answerBox__inner__answers__answer1{
     /* display: flex; */
 }
@@ -401,6 +406,8 @@ input{
         height: 85%;
         padding: 20px;
     }
+
+
 
     .resultBox__inner__buttons{
         display: block;

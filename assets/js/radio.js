@@ -331,7 +331,9 @@ setPopup();
     }
     resultAnnouncement();
 
-
+    document.getElementById('js-reload').addEventListener('click', () => {
+        location.reload();
+    })
     document.getElementById('js-close-btn2').addEventListener('click', () => {
         location.reload();
     })
